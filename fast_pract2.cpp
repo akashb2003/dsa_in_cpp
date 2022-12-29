@@ -7,7 +7,7 @@ int main()
     int n,m;
      cout<<"enter the number of test cases"<<endl;
     cin>>m;
-    
+
     for(int k=0;k<m; k++)
     {
     cout<<"enter the number of elements in array(odd)"<<endl;
@@ -15,7 +15,7 @@ int main()
     cout<<"Enter the elements in an array"<<endl;
     int a[n];
     int ans = 0;
-    
+
     for(int i = 0; i<n; i++)
     {
         cin>>a[i];
@@ -26,3 +26,4 @@ int main()
 }
     return 0;
 }
+
