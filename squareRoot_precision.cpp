@@ -46,10 +46,10 @@ float decimal2(float sq, float n, int pri)
 
 int main()
 {
-    int num;
-    cin>>num;
+    int num = 123;
+    // cin>>num;
     int temp = squareRoot(num);
-    float ans = decimal2(temp,num,3);
+    float ans = decimal2(temp,num,6);
     cout<<"Square Root of "<<num<<" is "<<ans;
     return 0;
 }
