@@ -64,7 +64,7 @@ void displaylist(struct node * top)
     }
     else
     {
-    printf("\n\nStack\n");
+    printf("\n\nQueuqe\n");
     while(p!=NULL)
     {
         printf("%d\n",p->data);
@@ -76,7 +76,7 @@ void displaylist(struct node * top)
 void peak()
 {
     if(top==NULL && rear == NULL)
-    printf("\nstack underflow\n");
+    printf("\n queue underflow\n");
     else
     printf("\npeak element is %d\n",top->data);
 }
