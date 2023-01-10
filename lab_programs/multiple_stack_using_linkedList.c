@@ -1,97 +1,103 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
-#define max 10
-typedef struct
-{
+#define MAX 10
+typedef struct{
     int key;
-} element;
+}element;
 
-struct stack 
-{
+struct stack{
     element data;
-    struct stack * link;
+    struct stack *link;
 };
-
-typedef struct stack* stackptr;
-stackptr top[max];
-
-void push(element item, int i)
+typedef struct stack *stackptr;
+stackptr top[MAX];
+void push(element item,int i)
 {
-    stackptr temp = (stackptr)malloc(sizeof(stackptr*));
-    temp->data= item;
+    stackptr temp;
+    temp=(stackptr)malloc(sizeof(stackptr*));
+    temp->data=item;
     temp->link=top[i];
     top[i]=temp;
-}
 
+}
 element pop(int i)
 {
     stackptr temp;
     element item;
-    temp = top[i]; 
+    temp=top[i];
     if(temp==NULL)
     {
-        item.key = -1;
+        item.key=-1;
         return item;
     }
     else
     {
-    item = temp->data;
-    top[i]=top[i]->link;
-    free(temp);
-    return item;
+        top[i]=top[i]->link;
+        item=temp->data;
+        free(temp);
+        return item;
     }
+    
 }
-
-void print(int i)
+void display(int i)
 {
-    stackptr temp = top[i];
+    stackptr temp=top[i];
+    printf("contents of stack are\n");
     for(;temp;temp=temp->link)
-    printf("\ndtack is: ");
     {
-        printf("%d ",temp->data);
+        printf("%d\t",temp->data);
     }
-    printf("\n");
+    
 }
-
-int main()
+void main()
 {
-    element item; int ch,i;
-    for(int z=0;i<max;z++)
+    int ch,z,i;
+    element item;
+    for(z=0;z<MAX;z++)
+    top[z]=NULL;
+    do
     {
-        top[z] = NULL;
-        printf("\n1-push\n2-pop\n3-display\n\nAny other number to exit\n");
-        printf("enter choice\n"); scanf("%d",&ch);
+       
+        printf("\n1-push\t2-pop\t3-display\t4-exit\n");
+        printf("enter choice\n");
+        scanf("%d",&ch);
         switch(ch)
         {
             case 1:
-            printf("\nEnter the data\n");
-            scanf("%d", &item.key);
-            printf("\nEnter the stack number in which you want to insert the data\n");
-            scanf("%d", &i);
+            printf("enter the item to be inserted\n");
+            scanf("%d",&item.key);
+            printf("enter the stack in which you want to insert it\n");
+            scanf("%d",&i);
             push(item,i-1);
             break;
-            
+
             case 2:
-            printf("\nEnter the stack number in which you want to pop the data\n");
-            scanf("%d", &i);
-            item = pop(i-1);
-            if(item.key == -1){
-                printf("\nStack is empty\n");
-            } 
-            else {printf("\n%d is poped\n",item.key); 
+            printf("enter the stack from which you want to remove the element\n");
+            scanf("%d",&i);
+            item=pop(i-1);
+            if(item.key==-1)
+            {
+                printf("empty stack\n");
+            }
+            else
+            {
+                printf("item deleted is %d",item.key);
             }
             break;
-            
-            case 3:
-            printf("\nEnter the stack number which you want to display the data\n");
-            scanf("%d", &i);
-            print(i-1);
-            break;
-            
-            default:
-            exit(0);
-        }
-    }
-    return 0;
-}
 
+            case 3:
+            printf("enter stack number ypu would like to display\n");
+            scanf("%d",&i);
+            display(i-1);
+            break;
+
+            case 4:
+            break;
+
+
+            default:
+            printf("ivalid choice\n");
+        }
+    } while(ch!=4);
+    
+}
