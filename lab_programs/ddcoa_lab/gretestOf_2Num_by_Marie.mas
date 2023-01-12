@@ -1,0 +1,14 @@
+org 100
+load x
+subt y
+skipcond 800
+jump Test
+load x
+output
+halt
+Test, load y
+output
+halt
+
+x, Dec 100
+y, Dec 133
