@@ -40,7 +40,7 @@ int ispalen(string st)
 
 int main()
 {
-    string s="Hello, olleH",s1="";
+    string s="9Hello,101 olleH9",s1="";
     cout<<s<<endl; 
     int i=0;
     while(s[i]!='\0')
